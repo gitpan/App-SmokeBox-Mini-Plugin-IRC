@@ -1,0 +1,34 @@
+---
+abstract: 'IRC plugin for minismokebox'
+author:
+  - 'Chris Williams'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::More: 0.47
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.93'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: App-SmokeBox-Mini-Plugin-IRC
+no_index:
+  directory:
+    - inc
+    - t
+provides:
+  App::SmokeBox::Mini::Plugin::IRC:
+    file: lib/App/SmokeBox/Mini/Plugin/IRC.pm
+    version: 0.02
+requires:
+  App::SmokeBox::Mini: 0.21_01
+  POE: 1.28
+  POE::Component::IRC: 6.16
+  perl: 5.6.0
+resources:
+  homepage: http://github.com/bingos/app-smokebox-mini-plugin-irc/tree
+  license: http://dev.perl.org/licenses/
+  repository: git://github.com/bingos/app-smokebox-mini-plugin-irc.git
+version: 0.02
