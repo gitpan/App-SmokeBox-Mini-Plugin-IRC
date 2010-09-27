@@ -6,7 +6,7 @@ use warnings;
 use base qw(Module::Install::Base);
 use vars qw($VERSION);
 
-$VERSION = '0.02';
+$VERSION = '0.08';
 
 my %licenses = (
     perl         => 'Software::License::Perl_5',
@@ -28,9 +28,13 @@ sub auto_license {
   return unless $Module::Install::AUTHOR;
   my %opts = @_;
   $opts{lc $_} = delete $opts{$_} for keys %opts;
-  my $holder = $opts{holder} || $self->author();
+  my $holder = $opts{holder} || _get_authors( $self );
+  #my $holder = $opts{holder} || $self->author;
   my $license = $self->license();
-  die "I don't know about that license\n" unless defined $licenses{ $license };
+  unless ( defined $licenses{ $license } ) {
+     warn "No license definition for '$license', aborting\n";
+     return 1;
+  }
   my $class = $licenses{ $license };
   eval "require $class";
   my $sl = $class->new( { holder => $holder } );
@@ -47,7 +51,13 @@ END
   return 1;
 }
 
+sub _get_authors {
+  my $self = shift;
+  my $joined = join ', ', @{ $self->author() || [] };
+  return $joined;
+}
+
 'Licensed to auto';
 __END__
 
-#line 115
+#line 125
