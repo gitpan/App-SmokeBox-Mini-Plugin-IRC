@@ -21,7 +21,7 @@ no_index:
 provides:
   App::SmokeBox::Mini::Plugin::IRC:
     file: lib/App/SmokeBox/Mini/Plugin/IRC.pm
-    version: 0.06
+    version: 0.08
 requires:
   App::SmokeBox::Mini: 0.32
   POE: 1.28
@@ -31,4 +31,4 @@ resources:
   homepage: http://github.com/bingos/app-smokebox-mini-plugin-irc/tree
   license: http://dev.perl.org/licenses/
   repository: git://github.com/bingos/app-smokebox-mini-plugin-irc.git
-version: 0.06
+version: 0.08

@@ -1,4 +1,28 @@
 ==============================
+2011-04-18 11:32:07 +0100 0.08
+==============================
+
+  commit 6f70ea128351560404e5cc51ab09cff360d32e55
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date:   Mon Apr 18 11:32:07 2011 +0100
+  
+    Respond to CTCP requests for VERSION and USERINFO with the perl
+    version/architecture that is being smoked
+
+  commit 6f84767f660bdc88e2085b320747f205868b7af7
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date:   Mon Apr 18 11:15:49 2011 +0100
+  
+    Make sure that the perl version + architecture always gets announced
+    in channels
+
+  commit 70a357fecc372cb1457658749dd490b6c2573efa
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date:   Mon Apr 18 10:29:30 2011 +0100
+  
+    Remove Changes file from source control 
+
+==============================
 2010-09-27 11:54:15 +0100 0.06
 ==============================
 
