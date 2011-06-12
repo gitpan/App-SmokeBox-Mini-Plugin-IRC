@@ -1,11 +1,14 @@
 package App::SmokeBox::Mini::Plugin::IRC;
+BEGIN {
+  $App::SmokeBox::Mini::Plugin::IRC::VERSION = '0.10';
+}
+
+#ABSTRACT: IRC plugin for minismokebox
 
 use strict;
 use warnings;
 use POE qw[Component::IRC Component::IRC::Plugin::Connector Component::IRC::Plugin::CTCP];
 use POE::Component::IRC::Common qw[u_irc];
-
-our $VERSION = '0.08';
 
 sub init {
   my $package = shift;
@@ -109,11 +112,17 @@ sub sbox_stop {
 
 qq[Smokey IRC];
 
+
 __END__
+=pod
 
 =head1 NAME
 
 App::SmokeBox::Mini::Plugin::IRC - IRC plugin for minismokebox
+
+=head1 VERSION
+
+version 0.10
 
 =head1 SYNOPSIS
 
@@ -123,7 +132,6 @@ App::SmokeBox::Mini::Plugin::IRC - IRC plugin for minismokebox
 
   server = my.irc.server
   nick = mysmoker
-
 
 =head1 DESCRIPTION
 
@@ -136,6 +144,8 @@ Configuration is handled by a section in the L<minismokebox> configuration file.
 When L<minismokebox> starts a bot will join configured channels and start announcing
 completed smoke jobs. When the smoke run finishes the bot will announce statistics
 relating to the smoke run and then terminate.
+
+=for Pod::Coverage   ^irc|sbox|init
 
 =head1 CONFIGURATION
 
@@ -175,20 +185,22 @@ A comma-separated list of IRC channels to join, default is C<#smokebox>
 
 =back
 
-=head1 AUTHOR
-
-Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
-
-=head1 LICENSE
-
-Copyright E<copy> Chris Williams
-
-This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
-
 =head1 SEE ALSO
 
 L<minismokebox>
 
 L<App::SmokeBox::Mini::Plugin>
 
+=head1 AUTHOR
+
+Chris Williams
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Chris Williams.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
 =cut
+

@@ -1,18 +1,53 @@
+
 use strict;
-use inc::Module::Install;
-name 'App-SmokeBox-Mini-Plugin-IRC';
-author 'Chris Williams';
-version_from 'lib/App/SmokeBox/Mini/Plugin/IRC.pm';
-abstract_from 'lib/App/SmokeBox/Mini/Plugin/IRC.pm';
-readme_from 'lib/App/SmokeBox/Mini/Plugin/IRC.pm';
-license 'perl';
-auto_license;
-perl_version '5.006';
-build_requires 'Test::More' => 0.47;
-requires 'POE' => 1.280;
-requires 'App::SmokeBox::Mini' => '0.32';
-requires 'POE::Component::IRC' => 6.16;
-makemaker_args(dist => { PREOP => "$^X ./tools/git-log.pl > ./Changes" });
-githubmeta;
-auto_provides;
-WriteAll();
+use warnings;
+
+use 5.006000;
+
+use ExtUtils::MakeMaker 6.30;
+
+
+
+my %WriteMakefileArgs = (
+  'ABSTRACT' => 'IRC plugin for minismokebox',
+  'AUTHOR' => 'Chris Williams',
+  'BUILD_REQUIRES' => {},
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.30'
+  },
+  'DISTNAME' => 'App-SmokeBox-Mini-Plugin-IRC',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'App::SmokeBox::Mini::Plugin::IRC',
+  'PREREQ_PM' => {
+    'App::SmokeBox::Mini' => '0.54',
+    'POE' => '1.28',
+    'POE::Component::IRC' => '6.16'
+  },
+  'VERSION' => '0.10',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+

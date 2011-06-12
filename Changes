@@ -1,4 +1,14 @@
 ==============================
+2011-06-12 08:02:01 +0100 0.10
+==============================
+
+  commit 939ea86881bbef47e2ac38b83540f59efc23edd0
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date:   Sun Jun 12 08:02:01 2011 +0100
+  
+    Converted distribution to Dist::Zilla 
+
+==============================
 2011-04-18 11:32:07 +0100 0.08
 ==============================
 
@@ -48,6 +58,6 @@
   
     Added 'password' configuration variable. 
 
-==============
-End of Excerpt
-==============
+====================================
+End of changes in the last 1825 days
+====================================
