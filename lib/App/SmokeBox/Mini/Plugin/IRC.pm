@@ -1,6 +1,6 @@
 package App::SmokeBox::Mini::Plugin::IRC;
-BEGIN {
-  $App::SmokeBox::Mini::Plugin::IRC::VERSION = '0.10';
+{
+  $App::SmokeBox::Mini::Plugin::IRC::VERSION = '0.12';
 }
 
 #ABSTRACT: IRC plugin for minismokebox
@@ -79,8 +79,8 @@ sub _get_channels {
 }
 
 sub sbox_perl_info {
-  my ($kernel,$heap,$vers,$arch) = @_[KERNEL,HEAP,ARG0,ARG1];
-  my $message = "Smoking v$vers built for $arch";
+  my ($kernel,$heap,$vers,$arch,$osvers) = @_[KERNEL,HEAP,ARG0,ARG1,ARG2];
+  my $message = "Smoking v$vers built for $arch $osvers";
   $heap->{_msg} = $message;
   $heap->{_irc}->yield( 'privmsg', $_, $message ) for _get_channels( $heap->{channels} );
   $heap->{_irc}->plugin_add( 'CTCP',
@@ -112,8 +112,8 @@ sub sbox_stop {
 
 qq[Smokey IRC];
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -122,7 +122,7 @@ App::SmokeBox::Mini::Plugin::IRC - IRC plugin for minismokebox
 
 =head1 VERSION
 
-version 0.10
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -197,10 +197,9 @@ Chris Williams
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Chris Williams.
+This software is copyright (c) 2013 by Chris Williams.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

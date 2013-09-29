@@ -4,7 +4,7 @@
       "Chris Williams"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200007, CPAN::Meta::Converter version 2.110930",
+   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132661",
    "license" : [
       "perl_5"
    ],
@@ -19,24 +19,39 @@
             "ExtUtils::MakeMaker" : "6.30"
          }
       },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
       "runtime" : {
          "requires" : {
-            "App::SmokeBox::Mini" : "0.54",
+            "App::SmokeBox::Mini" : "0.58",
             "POE" : "1.28",
             "POE::Component::IRC" : "6.16",
             "perl" : "v5.6.0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Spec" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
+            "Test::More" : "0"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
-      "homepage" : "http://github.com/bingos/app-smokebox-mini-plugin-irc",
+      "homepage" : "https://github.com/bingos/app-smokebox-mini-plugin-irc",
       "repository" : {
          "type" : "git",
-         "url" : "http://github.com/bingos/app-smokebox-mini-plugin-irc",
-         "web" : "http://github.com/bingos/app-smokebox-mini-plugin-irc"
+         "url" : "https://github.com/bingos/app-smokebox-mini-plugin-irc.git",
+         "web" : "https://github.com/bingos/app-smokebox-mini-plugin-irc"
       }
    },
-   "version" : "0.10"
+   "version" : "0.12"
 }
 

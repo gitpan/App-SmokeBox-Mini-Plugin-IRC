@@ -2,7 +2,7 @@ NAME
     App::SmokeBox::Mini::Plugin::IRC - IRC plugin for minismokebox
 
 VERSION
-    version 0.10
+    version 0.12
 
 SYNOPSIS
       # example minismokebox configuration file
@@ -61,7 +61,7 @@ AUTHOR
     Chris Williams
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2011 by Chris Williams.
+    This software is copyright (c) 2013 by Chris Williams.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
